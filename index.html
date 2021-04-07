@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>The Game Spot Stop</h1>
+
+<button onclick="getScore()">Let's rate a game!</button>
+
+<div class="display-none">
+    <h2>Here are your results:</h2>
+<ul>
+    <li></li>
+    <li></li>
+</ul>
+</div>
+
+<script>
+
+const getScore = () => {
+let game1 = prompt("Please enter your game title")
+let game1Score = Number(prompt(`How would you rate ${game1} on a 1-5 scale?`)) //the answer needs to be a number
+console.log(game1)
+
+
+let game2 = prompt("Please enter your game title")
+let game2Score = Number(prompt(`How would you rate ${game2} on a 1-5 scale?`))
+
+
+let unorderedList = document.querySelector('.display-none');
+unorderedList.classList.remove('display-none');
+
+
+let games = document.querySelectorAll('li');//gives u access to both li
+games[0].textContent = `Title 1: ${game1} Score: ${game1Score}`
+games[1].textContent = `Title 1: ${game2} Score: ${game2Score}`
+
+if (game1Score >= 4){
+    games[0].style.color = 'green';     
+}else{
+    games[0].style.color = 'red';
+    
+}
+
+if(game2Score >= 4){
+    games[1].style.color = 'green';     
+}else{
+    games[1].style.color = 'red';
+   
+}
+
+};
+
+
+</script>
+</body>
+</html>
